@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nordes Store | SPA</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/variables.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+</head>
+<body>
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="page-section active fade-in">
+            <!-- Header: Início -->
+            <header class="page-header" data-page-header="home">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='assets/icons/logo.png') }}" alt="Nordes Story Logo">
+                    <span class="logo_span">NORDES<span>STORY</span></span>
+                </div>
+
+                <div class="header-actions">
+                    <i class="fa-solid fa-magnifying-glass" id="header-search-icon"></i>
+
+                    <span class="header-icon-wrap">
+                        <i class="fa-solid fa-bag-shopping js-cart-icon" id="header-cart-icon"></i>
+                        <span class="cart-badge js-cart-badge" id="cart-badge">0</span>
+                    </span>
+
+                    <button class="avatar-btn" id="header-profile-btn" aria-label="Abrir perfil">
+                        <div class="user-avatar">
+                            <img id="header-avatar-img" src="https://ui-avatars.com/api/?name=Visitante&background=D1C7BD&color=fff" alt="Visitante">
+                        </div>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Hero -->
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Sua próxima história começa aqui.</h1>
+                    <p>Livros, mangás e objetos selecionados com curadoria e propósito.</p>
+                    <button class="btn-explore" onclick="navigateTo('explorar')">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        Explorar agora
+                    </button>
+                </div>
+                <div class="hero-image">
+                    <img src="{{ url_for('static', filename='assets/images/hero-books.png') }}" alt="Bookshelf">
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <nav class="categories-nav">
+                <a href="#" class="category-item">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Livros</span>
+                </a>
+                <a href="#" class="category-item">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Mangás</span>
+                </a>
+                <a href="#" class="category-item">
+                    <i class="fa-solid fa-couch"></i>
+                    <span>Acessórios</span>
+                </a>
+                <a href="#" class="category-item">
+                    <i class="fa-solid fa-scroll"></i>
+                    <span>Papéis</span>
+                </a>
+                <a href="#" class="category-item">
+                    <i class="fa-solid fa-shapes"></i>
+                    <span>Coleções</span>
+                </a>
+            </nav>
+
+            <!-- For Your Moment -->
+            <div class="section-header">
+                <h2>Para o seu momento</h2>
+                <a href="#" class="view-all">Ver tudo <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="moments-scroll">
+                <div class="moment-card hover-scale">
+                    <img src="{{ url_for('static', filename='assets/images/moment-1.jpg') }}" alt="Leituras tranquilas">
+                    <div class="moment-info">
+                        <i class="fa-solid fa-coffee"></i>
+                        <h3>Leituras tranquilas</h3>
+                        <span>32 itens</span>
+                    </div>
+                </div>
+                <div class="moment-card hover-scale">
+                    <img src="{{ url_for('static', filename='assets/images/moment-2.jpg') }}" alt="Mentes criativas">
+                    <div class="moment-info">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <h3>Mentes criativas</h3>
+                        <span>27 itens</span>
+                    </div>
+                </div>
+                <div class="moment-card hover-scale">
+                    <img src="{{ url_for('static', filename='assets/images/moment-3.jpg') }}" alt="Mundos ilustrados">
+                    <div class="moment-info">
+                        <i class="fa-solid fa-comment-dots"></i>
+                        <h3>Mundos ilustrados</h3>
+                        <span>41 itens</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Arrivals -->
+            <div class="section-header">
+                <h2>Novidades que chegaram</h2>
+                <a href="#" class="view-all">Ver tudo <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="arrivals-scroll">
+                <div class="book-card hover-scale">
+                    <div class="book-image">
+                        <span class="badge-new">Novo</span>
+                        <img src="{{ url_for('static', filename='assets/books/book-1.png') }}" alt="O Jardim Secreto">
+                        <button class="add-to-cart-btn" data-id="book-1" aria-label="Adicionar O Jardim Secreto à sacola">
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="book-card hover-scale">
+                    <div class="book-image">
+                        <span class="badge-new">Novo</span>
+                        <img src="{{ url_for('static', filename='assets/books/book-2.png') }}" alt="Spy x Family">
+                        <button class="add-to-cart-btn" data-id="book-2" aria-label="Adicionar Spy x Family à sacola">
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explorar Section -->
+        <section id="explorar" class="page-section fade-in">
+            <!-- Header: Explorar -->
+            <header class="page-header" data-page-header="explorar">
+                <button class="icon-btn back-btn" data-navigate="home" aria-label="Voltar para o início">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <h1 class="page-header-title">Explorar</h1>
+                <span class="header-icon-wrap">
+                    <i class="fa-solid fa-bag-shopping js-cart-icon"></i>
+                    <span class="cart-badge js-cart-badge">0</span>
+                </span>
+            </header>
+
+            <div style="padding: var(--spacing-md);">
+                <h2 style="font-family: var(--font-serif); font-size: 32px; margin-bottom: var(--spacing-lg);">Explorar</h2>
+                <div class="search-bar" style="background: var(--white); padding: 12px 16px; border-radius: var(--radius-md); display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow); margin-bottom: var(--spacing-xl);">
+                    <i class="fa-solid fa-magnifying-glass" style="color: var(--text-secondary);"></i>
+                    <input type="text" placeholder="Títulos, autores ou gêneros..." style="border: none; outline: none; width: 100%; font-family: var(--font-sans); font-size: 16px;">
+                </div>
+
+                <h3 style="margin-bottom: var(--spacing-md);">Categorias em destaque</h3>
+                <div class="grid-categories" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md);">
+                    <div class="category-card" style="background: #E8DED1; height: 120px; border-radius: var(--radius-md); display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 600; gap: 8px;">
+                        <i class="fa-solid fa-feather-pointed"></i> Ficção
+                    </div>
+                    <div class="category-card" style="background: #D1D8E8; height: 120px; border-radius: var(--radius-md); display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 600; gap: 8px;">
+                        <i class="fa-solid fa-mask"></i> Mangás
+                    </div>
+                    <div class="category-card" style="background: #D1E8D5; height: 120px; border-radius: var(--radius-md); display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 600; gap: 8px;">
+                        <i class="fa-solid fa-palette"></i> Arte
+                    </div>
+                    <div class="category-card" style="background: #E8D1D1; height: 120px; border-radius: var(--radius-md); display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 600; gap: 8px;">
+                        <i class="fa-solid fa-pen-nib"></i> Design
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coleções Section -->
+        <section id="colecoes" class="page-section fade-in">
+            <!-- Header: Coleções -->
+            <header class="page-header" data-page-header="colecoes">
+                <button class="icon-btn back-btn" data-navigate="home" aria-label="Voltar para o início">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <h1 class="page-header-title">Coleções</h1>
+                <button class="icon-btn" aria-label="Criar coleção">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </header>
+
+            <div style="padding: var(--spacing-md);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-lg);">
+                    <h2 style="font-family: var(--font-serif); font-size: 32px; margin: 0;">Minhas Coleções</h2>
+                </div>
+                
+                <div class="collection-list" style="display: flex; flex-direction: column; gap: var(--spacing-md);">
+                    <div class="collection-item" style="background: var(--white); padding: var(--spacing-md); border-radius: var(--radius-md); display: flex; align-items: center; gap: var(--spacing-md); box-shadow: var(--shadow);">
+                        <div style="width: 60px; height: 60px; background: var(--card-bg); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-solid fa-book" style="color: var(--accent-color);"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin: 0;">Para ler em 2024</h4>
+                            <p style="font-size: 12px; color: var(--text-secondary); margin: 0;">12 itens • Privada</p>
+                        </div>
+                    </div>
+                    <div class="collection-item" style="background: var(--white); padding: var(--spacing-md); border-radius: var(--radius-md); display: flex; align-items: center; gap: var(--spacing-md); box-shadow: var(--shadow);">
+                        <div style="width: 60px; height: 60px; background: var(--card-bg); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-solid fa-wand-sparkles" style="color: var(--accent-color);"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin: 0;">Inspiração Design</h4>
+                            <p style="font-size: 12px; color: var(--text-secondary); margin: 0;">8 itens • Pública</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Favoritos Section -->
+        <section id="favoritos" class="page-section fade-in">
+            <!-- Header: Favoritos -->
+            <header class="page-header" data-page-header="favoritos">
+                <button class="icon-btn back-btn" data-navigate="home" aria-label="Voltar para o início">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <h1 class="page-header-title">Favoritos</h1>
+                <span class="header-icon-wrap">
+                    <i class="fa-solid fa-bag-shopping js-cart-icon"></i>
+                    <span class="cart-badge js-cart-badge">0</span>
+                </span>
+            </header>
+
+            <div style="padding: var(--spacing-md);">
+                <h2 style="font-family: var(--font-serif); font-size: 32px; margin-bottom: var(--spacing-lg);">Favoritos</h2>
+                
+                <div class="favorites-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md);">
+                    <div class="book-card">
+                        <div class="book-image" style="height: 200px; background: var(--card-bg); border-radius: var(--radius-md); position: relative; display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-solid fa-heart" style="position: absolute; top: 12px; right: 12px; color: #E74C3C;"></i>
+                            <img src="{{ url_for('static', filename='assets/books/book-1.png') }}" alt="Book" style="max-width: 70%; max-height: 70%;">
+                            <button class="add-to-cart-btn" data-id="book-1" aria-label="Adicionar O Jardim Secreto à sacola">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </button>
+                        </div>
+                        <p style="font-size: 14px; font-weight: 600; margin-top: 8px;">O Jardim Secreto</p>
+                    </div>
+                    <div class="book-card">
+                        <div class="book-image" style="height: 200px; background: var(--card-bg); border-radius: var(--radius-md); position: relative; display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-solid fa-heart" style="position: absolute; top: 12px; right: 12px; color: #E74C3C;"></i>
+                            <img src="{{ url_for('static', filename='assets/books/book-2.png') }}" alt="Manga" style="max-width: 70%; max-height: 70%;">
+                            <button class="add-to-cart-btn" data-id="book-2" aria-label="Adicionar Spy x Family à sacola">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </button>
+                        </div>
+                        <p style="font-size: 14px; font-weight: 600; margin-top: 8px;">Spy x Family</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Perfil Section -->
+        <section id="perfil" class="page-section fade-in">
+            <!-- Header: Perfil -->
+            <header class="page-header" data-page-header="perfil">
+                <button class="icon-btn back-btn" data-navigate="home" aria-label="Voltar para o início">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <h1 class="page-header-title">Perfil</h1>
+                <span class="header-spacer" aria-hidden="true"></span>
+            </header>
+
+            <div class="profile-header">
+                <div class="profile-avatar-lg">
+                    <img id="profile-avatar-img" src="https://ui-avatars.com/api/?name=Visitante&background=2D241E&color=fff&size=128" alt="Avatar">
+                </div>
+                <div>
+                    <h2 id="profile-name">—</h2>
+                    <p id="profile-email">—</p>
+                </div>
+            </div>
+
+            <div class="profile-quick-info">
+                <div class="quick-info-card">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Telefone</span>
+                    <p id="profile-phone-summary">—</p>
+                </div>
+                <div class="quick-info-card">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Endereço</span>
+                    <p id="profile-address-summary">—</p>
+                </div>
+            </div>
+
+            <div class="settings-list">
+                <p class="settings-group-label">Conta</p>
+                <button class="settings-item" data-open-modal="modal-editar-perfil">
+                    <i class="fa-solid fa-user-pen settings-icon"></i>
+                    <span class="settings-item-text">
+                        <strong>Editar perfil</strong>
+                        <span>Nome e e-mail de acesso</span>
+                    </span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <button class="settings-item" data-open-modal="modal-info-pessoais">
+                    <i class="fa-solid fa-id-card settings-icon"></i>
+                    <span class="settings-item-text">
+                        <strong>Informações pessoais</strong>
+                        <span>Telefone, CPF e data de nascimento</span>
+                    </span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <button class="settings-item" data-open-modal="modal-endereco">
+                    <i class="fa-solid fa-location-dot settings-icon"></i>
+                    <span class="settings-item-text">
+                        <strong>Endereço</strong>
+                        <span>Endereço de entrega</span>
+                    </span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <p class="settings-group-label">Loja</p>
+                <button class="settings-item" onclick="navigateTo('colecoes')">
+                    <i class="fa-solid fa-bookmark settings-icon"></i>
+                    <span class="settings-item-text">
+                        <strong>Minhas coleções</strong>
+                        <span>Listas que você organizou</span>
+                    </span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <button class="settings-item" onclick="navigateTo('favoritos')">
+                    <i class="fa-solid fa-heart settings-icon"></i>
+                    <span class="settings-item-text">
+                        <strong>Favoritos</strong>
+                        <span>Itens que você salvou</span>
+                    </span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <p class="settings-group-label">Sessão</p>
+                <button class="settings-item settings-item--danger" id="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket settings-icon"></i>
+                    <span class="settings-item-text">
+                        <strong>Sair da conta</strong>
+                        <span>Encerrar sessão neste dispositivo</span>
+                    </span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Login / Cadastro Section -->
+        <section id="login" class="page-section fade-in">
+            <!-- Header: Login / Cadastro -->
+            <header class="page-header page-header--auth" data-page-header="login">
+                <button class="icon-btn back-btn" data-navigate="home" aria-label="Voltar para o início">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='assets/icons/logo.png') }}" alt="Nordes Story Logo">
+                    <span class="logo_span">NORDES<span>STORY</span></span>
+                </div>
+                <span class="header-spacer" aria-hidden="true"></span>
+            </header>
+
+            <div class="auth-wrap">
+                <!-- Login -->
+                <div class="auth-card" id="login-view">
+                    <div class="auth-card-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+                    <h2>Bem-vindo(a) de volta</h2>
+                    <p class="auth-subtitle">Entre para acessar seu perfil na Nordes Story</p>
+                    <form id="login-form" novalidate>
+                        <div class="input-group">
+                            <label for="login-email">E-mail</label>
+                            <input type="email" id="login-email" placeholder="voce@email.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="login-password">Senha</label>
+                            <input type="password" id="login-password" placeholder="••••••••" required>
+                        </div>
+                        <p class="auth-error" id="login-error"></p>
+                        <button type="submit" class="btn-auth-submit">Entrar</button>
+                    </form>
+                    <div class="auth-divider"><span>ou</span></div>
+                    <button type="button" class="btn-google" id="google-login-btn">
+                        <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.9c1.7-1.57 2.7-3.88 2.7-6.62z"/>
+                            <path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.9-2.26c-.8.54-1.84.86-3.06.86-2.35 0-4.34-1.59-5.05-3.72H.95v2.33A9 9 0 0 0 9 18z"/>
+                            <path fill="#FBBC05" d="M3.95 10.7A5.4 5.4 0 0 1 3.68 9c0-.59.1-1.16.27-1.7V4.97H.95A9 9 0 0 0 0 9c0 1.45.35 2.83.95 4.03l3-2.33z"/>
+                            <path fill="#EA4335" d="M9 3.58c1.32 0 2.51.45 3.44 1.35l2.58-2.58C13.46.89 11.43 0 9 0A9 9 0 0 0 .95 4.97l3 2.33C4.66 5.17 6.65 3.58 9 3.58z"/>
+                        </svg>
+                        Entrar com Google
+                    </button>
+                    <p class="auth-switch">Não tem conta? <a href="#" id="show-register-link">Criar conta</a></p>
+                </div>
+
+                <!-- Cadastro -->
+                <div class="auth-card hidden" id="register-view">
+                    <div class="auth-card-icon"><i class="fa-solid fa-feather-pointed"></i></div>
+                    <h2>Criar sua conta</h2>
+                    <p class="auth-subtitle">Leva menos de um minuto</p>
+                    <form id="register-form" novalidate>
+                        <div class="input-group">
+                            <label for="register-name">Nome completo</label>
+                            <input type="text" id="register-name" placeholder="Seu nome" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="register-email">E-mail</label>
+                            <input type="email" id="register-email" placeholder="voce@email.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="register-password">Senha</label>
+                            <input type="password" id="register-password" placeholder="Mínimo 6 caracteres" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="register-confirm">Confirmar senha</label>
+                            <input type="password" id="register-confirm" placeholder="Repita a senha" required>
+                        </div>
+                        <p class="auth-error" id="register-error"></p>
+                        <button type="submit" class="btn-auth-submit">Criar conta</button>
+                    </form>
+                    <div class="auth-divider"><span>ou</span></div>
+                    <button type="button" class="btn-google" id="google-register-btn">
+                        <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.9c1.7-1.57 2.7-3.88 2.7-6.62z"/>
+                            <path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.9-2.26c-.8.54-1.84.86-3.06.86-2.35 0-4.34-1.59-5.05-3.72H.95v2.33A9 9 0 0 0 9 18z"/>
+                            <path fill="#FBBC05" d="M3.95 10.7A5.4 5.4 0 0 1 3.68 9c0-.59.1-1.16.27-1.7V4.97H.95A9 9 0 0 0 0 9c0 1.45.35 2.83.95 4.03l3-2.33z"/>
+                            <path fill="#EA4335" d="M9 3.58c1.32 0 2.51.45 3.44 1.35l2.58-2.58C13.46.89 11.43 0 9 0A9 9 0 0 0 .95 4.97l3 2.33C4.66 5.17 6.65 3.58 9 3.58z"/>
+                        </svg>
+                        Cadastre-se com Google
+                    </button>
+                    <p class="auth-switch">Já tem conta? <a href="#" id="show-login-link">Entrar</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active" data-page="home">
+                <i class="fa-solid fa-house"></i>
+                <span>Início</span>
+            </a>
+            <a href="#" class="nav-item" data-page="explorar">
+                <i class="fa-solid fa-compass"></i>
+                <span>Explorar</span>
+            </a>
+            <a href="#" class="nav-item" data-page="colecoes">
+                <i class="fa-solid fa-bookmark"></i>
+                <span>Coleções</span>
+            </a>
+            <a href="#" class="nav-item" data-page="favoritos">
+                <i class="fa-solid fa-heart"></i>
+                <span>Favoritos</span>
+            </a>
+        </nav>
+    </main>
+
+    <!-- Sacola / Carrinho -->
+    <div class="side-overlay" id="cart-overlay">
+        <div class="side-panel">
+            <div class="side-panel-header">
+                <h3><i class="fa-solid fa-bag-shopping"></i> Sua sacola</h3>
+                <button class="icon-btn" id="cart-close-btn" aria-label="Fechar sacola"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="cart-empty-state">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <p>Sua sacola está vazia.<br>Explore a loja e adicione seus itens favoritos.</p>
+            </div>
+            <div id="cart-items-list"></div>
+            <div class="cart-footer" id="cart-footer" style="display:none;">
+                <div class="cart-total-row">
+                    <span>Total</span>
+                    <span id="cart-total">R$ 0,00</span>
+                </div>
+                <button class="btn-checkout" id="cart-checkout-btn">
+                    <i class="fa-solid fa-lock"></i> Finalizar compra
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Busca dinâmica -->
+    <div class="side-overlay" id="search-overlay">
+        <div class="side-panel">
+            <div class="side-panel-header">
+                <h3><i class="fa-solid fa-magnifying-glass"></i> Buscar</h3>
+                <button class="icon-btn" id="search-close-btn" aria-label="Fechar busca"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="search-input-wrap">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-input" placeholder="Títulos, autores ou categorias..." autocomplete="off">
+                <button id="search-clear-btn" aria-label="Limpar busca"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="search-idle-state">
+                <i class="fa-solid fa-book"></i>
+                <p>Digite para encontrar livros, mangás e itens da loja.</p>
+            </div>
+            <div id="search-empty-state" style="display:none;">
+                <i class="fa-solid fa-magnifying-glass-minus"></i>
+                <p>Nenhum item encontrado para essa busca.</p>
+            </div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+
+    <!-- Modal: Editar Perfil -->
+    <div class="modal-overlay" id="modal-editar-perfil">
+        <div class="modal-panel">
+            <div class="side-panel-header">
+                <h3>Editar perfil</h3>
+                <button class="icon-btn" data-close-modal="modal-editar-perfil" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-editar-perfil" novalidate>
+                    <div class="input-group">
+                        <label for="edit-name">Nome completo</label>
+                        <input type="text" id="edit-name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="edit-email">E-mail</label>
+                        <input type="email" id="edit-email" required>
+                    </div>
+                    <button type="submit" class="btn-auth-submit">Salvar alterações</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Informações Pessoais -->
+    <div class="modal-overlay" id="modal-info-pessoais">
+        <div class="modal-panel">
+            <div class="side-panel-header">
+                <h3>Informações pessoais</h3>
+                <button class="icon-btn" data-close-modal="modal-info-pessoais" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-info-pessoais" novalidate>
+                    <div class="input-group">
+                        <label for="edit-phone">Telefone</label>
+                        <input type="tel" id="edit-phone" placeholder="(00) 00000-0000">
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="edit-cpf">CPF</label>
+                            <input type="text" id="edit-cpf" placeholder="000.000.000-00">
+                        </div>
+                        <div class="input-group">
+                            <label for="edit-birthdate">Nascimento</label>
+                            <input type="date" id="edit-birthdate">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-auth-submit">Salvar informações</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Endereço -->
+    <div class="modal-overlay" id="modal-endereco">
+        <div class="modal-panel">
+            <div class="side-panel-header">
+                <h3>Endereço</h3>
+                <button class="icon-btn" data-close-modal="modal-endereco" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-endereco" novalidate>
+                    <div class="input-row">
+                        <div class="input-group" style="flex: 0 0 40%;">
+                            <label for="edit-cep">CEP</label>
+                            <input type="text" id="edit-cep" placeholder="00000-000">
+                        </div>
+                        <div class="input-group">
+                            <label for="edit-street">Rua</label>
+                            <input type="text" id="edit-street" placeholder="Nome da rua">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="edit-number">Número</label>
+                            <input type="text" id="edit-number" placeholder="Nº">
+                        </div>
+                        <div class="input-group">
+                            <label for="edit-complement">Complemento</label>
+                            <input type="text" id="edit-complement" placeholder="Apto, bloco...">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="edit-neighborhood">Bairro</label>
+                        <input type="text" id="edit-neighborhood" placeholder="Bairro">
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="edit-city">Cidade</label>
+                            <input type="text" id="edit-city" placeholder="Cidade">
+                        </div>
+                        <div class="input-group" style="flex: 0 0 90px;">
+                            <label for="edit-state">UF</label>
+                            <input type="text" id="edit-state" placeholder="PB" maxlength="2">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-auth-submit">Salvar endereço</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aba inicial definida pela rota Flask acessada (ex: /explorar -> "explorar") -->
+    <script>
+        window.NORDES_INITIAL_PAGE = "{{ initial_page }}";
+        window.NORDES_OPEN_CART = {{ open_cart | default(false) | tojson }};
+    </script>
+
+    <!-- JS Files -->
+    <script src="{{ url_for('static', filename='js/config.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/products.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/navigation.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/categories.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/slider.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/search.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
