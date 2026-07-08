@@ -1,0 +1,30 @@
+:root {
+    /* Colors */
+    --bg-color: #F7F3F0;
+    --text-primary: #1A1A1A;
+    --text-secondary: #6B6B6B;
+    --accent-color: #2D241E;
+    --white: #FFFFFF;
+    --card-bg: #EBE6E1;
+    --tag-bg: #F0F0F0;
+    
+    /* Fonts */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 999px;
+    
+    /* Shadows */
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}

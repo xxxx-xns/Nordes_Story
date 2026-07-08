@@ -1,0 +1,60 @@
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .hero-content {
+        max-width: 70%;
+    }
+    
+    .category-item span {
+        font-size: 10px;
+    }
+    
+    .logo_span{
+    	display:none;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-content {
+        max-width: 50%;
+        padding-left: var(--spacing-xl);
+    }
+    
+    .hero h1 {
+        font-size: 56px;
+    }
+    
+    .moments-scroll, .arrivals-scroll {
+        padding: 0 var(--spacing-xl) 100px;
+        gap: var(--spacing-lg);
+    }
+    
+    .moment-card {
+        min-width: 200px;
+        height: 260px;
+    }
+    
+    .book-card {
+        min-width: 220px;
+    }
+    
+    .book-image {
+        height: 300px;
+    }
+}
+
+@media (min-width: 1024px) {
+    body {
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: #eee;
+    }
+    
+    main {
+        background-color: var(--bg-color);
+        min-height: 100vh;
+        box-shadow: 0 0 50px rgba(0,0,0,0.1);
+    }
+}
