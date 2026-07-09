@@ -49,12 +49,12 @@ class Config:
     # URL para onde o Google redireciona após o login (deve estar cadastrada
     # no Google Cloud Console em "URIs de redirecionamento autorizados")
     GOOGLE_REDIRECT_URI = os.environ.get(
-        "GOOGLE_REDIRECT_URI", "http://localhost:5000/api/auth/google/callback"
+        "GOOGLE_REDIRECT_URI", "https://nordes-story-1.onrender.com/api/auth/google/callback"
     )
     # Para onde o usuário é enviado no navegador após o login concluir
     # (agora é uma rota Flask de verdade, não mais um #hash)
     FRONTEND_POST_LOGIN_URL = os.environ.get(
-        "FRONTEND_POST_LOGIN_URL", "http://localhost:5000/perfil"
+        "FRONTEND_POST_LOGIN_URL", "https://nordes-story-1.onrender.com/perfil"
     )
 
     # --- Senhas ---
